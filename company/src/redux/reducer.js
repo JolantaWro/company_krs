@@ -32,8 +32,11 @@ function reducerCompany (state=initialState, action) {
     }
 }
 
+
+
+
 const rootReducers = combineReducers({
-    company: reducerCompany,
+    company: reducerCompany
 })
 
 export default rootReducers;

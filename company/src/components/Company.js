@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Company = () => {
+const Company = ({ company, loading, error, fetchAsync }) => {
+    console.log(company, loading, error)
+
     return (
         <div>
-            <h1>Component Company</h1>
+            <button disabled={loading} onClick={fetchAsync}>Pobierz dane</button>
+            {loading && "Pobieram..."}
+            {error && error}
+            {company && <p>{company.company}</p>}
         </div>
     );
 };
