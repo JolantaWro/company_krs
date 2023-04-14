@@ -9,11 +9,12 @@ const mapStateToProps = state => ({
     loading: state.company.loading,
     error: state.company.error,
     company: state.company.company
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-    fetchAsync: () => dispatch(fetchAsync()),
+    companyAsync: () => dispatch(fetchAsync())
 });
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Company);
