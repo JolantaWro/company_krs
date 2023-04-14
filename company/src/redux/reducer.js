@@ -5,7 +5,7 @@ import {DATA_ERROR, DATA_FETCHED, DATA_FETCHING} from "./actions";
 const initialState = {
     loading: false,
     error: "",
-    company: null
+    company: ""
 }
 
 function reducerCompany (state=initialState, action) {

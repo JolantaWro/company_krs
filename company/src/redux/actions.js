@@ -23,7 +23,7 @@ const dataError = (value) => ({
             // console.log(respo.odpis.dane.dzial1.danePodmiotu.nazwa))
 }
 
-// console.log(makeApiCall())
+(makeApiCall())
 
 const fetchAsync = () => {
     return async function(dispatch) {
