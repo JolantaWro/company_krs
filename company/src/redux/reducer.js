@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     error: "",
     company: {
-        name: ""
+        name: "",
+        date: ""
     }
 }
 

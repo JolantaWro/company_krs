@@ -9,14 +9,13 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
     const handleSubmit = (value) => {
         companyAsync(value)
     }
-    console.log(company)
 
     return (
         <>
             <CompanyInput onSubmit={handleSubmit} />
             {loading && "Pobieram..."}
             {error && error}
-            <Company name={company.name}/>
+            <Company company={company}/>
         </>
     );
 };

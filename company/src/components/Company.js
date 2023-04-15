@@ -1,11 +1,11 @@
 import React from 'react';
-import CompanyInput from "./CompanyInput";
 
-const Company = ({ name }) => {
+const Company = ({ company }) => {
 
     return (
         <div>
-            {name}
+            { company && company.name}
+            { company && company.date}
         </div>
     );
 };

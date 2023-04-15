@@ -25,11 +25,19 @@ const fetchAsyncData = (value) => {
     return async function(dispatch) {
         dispatch(startFetching());
         try{
-            const response = await getCompanyData(value)
-            dispatch(dataFetched(response))
+            const data = await getCompanyData(value)
+            if (data.status === 200){
+                const company = await data.json()
+                dispatch(dataFetched({
+                    name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
+                    date: company.odpis.naglowekA.dataOstatniegoWpisu
+                }))
+            } else {
+                dispatch(dataError("Błądnie wprowadzone dane"))
+            }
         }
-        catch (e) {
-            dispatch(dataError(e.message))
+        catch (error) {
+            dispatch(dataError(error.message))
         }
     }
 }
