@@ -1,3 +1,5 @@
+import {getCompanyData} from "../api/regist";
+
 const DATA_FETCHING = "DATA_FETCHING";
 const DATA_FETCHED = "DATA_FETCHED";
 const DATA_ERROR = "DATA_ERROR";
@@ -17,28 +19,20 @@ const dataError = (value) => ({
     payload: value
 });
 
- export function makeApiCall() {
-    return fetch('https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/0000020977?rejestr=P&format=json')
-        .then((respo) => respo.json()).then(json => console.log(json))
-            // console.log(respo.odpis.dane.dzial1.danePodmiotu.nazwa))
-}
 
-(makeApiCall())
 
-const fetchAsync = () => {
+const fetchAsyncData = (value) => {
     return async function(dispatch) {
         dispatch(startFetching());
         try{
-            const response = await makeApiCall()
-            // const company = await response.json()
-            // const company = respo.odpis.dane.dzial1.danePodmiotu.nazwa
-            dispatch(dataFetched(response.odpis.dane.dzial1.danePodmiotu.nazwa))
+            const response = await getCompanyData(value)
+            dispatch(dataFetched(response))
         }
         catch (e) {
-            dispatch(dataError(e))
+            dispatch(dataError(e.message))
         }
     }
 }
 
 
-export { DATA_FETCHING, DATA_FETCHED, DATA_ERROR, startFetching, dataFetched, dataError, fetchAsync}
+export { DATA_FETCHING, DATA_FETCHED, DATA_ERROR, startFetching, dataFetched, dataError, fetchAsyncData }

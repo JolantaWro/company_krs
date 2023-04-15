@@ -1,8 +1,25 @@
 import React from "react";
 import Company from "../components/Company";
 import {connect} from "react-redux";
-import {fetchAsync} from "../redux/actions";
+import {fetchAsyncData} from "../redux/actions";
 
+import CompanyInput from "../components/CompanyInput";
+
+const CompanyContainer = ({ companyAsync, company, loading, error }) => {
+    const handleSubmit = (value) => {
+        companyAsync(value)
+    }
+    console.log(company)
+
+    return (
+        <>
+            <CompanyInput onSubmit={handleSubmit} />
+            {loading && "Pobieram..."}
+            {error && error}
+            <Company name={company.name}/>
+        </>
+    );
+};
 
 
 const mapStateToProps = state => ({
@@ -12,9 +29,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    companyAsync: () => dispatch(fetchAsync())
+    companyAsync: (value) => dispatch(fetchAsyncData(value))
 });
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Company);
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyContainer);

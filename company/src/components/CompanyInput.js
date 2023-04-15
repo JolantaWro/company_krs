@@ -1,28 +1,28 @@
 import React, {useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const CompanyInput = () => {
+const CompanyInput = ({onSubmit}) => {
 
     const [formKRS, setFormKRS] = useState({ numberKRS: "", register: "" });
     const [message, setMessage] = useState("");
 
 
-    const handleSaveKRS = () => {
-        if(formKRS.numberKRS || formKRS.register) {
-            setMessage("Szukaj")
-        }
-    }
-
+    // const handleSaveKRS = () => {
+    //     if(formKRS.numberKRS || formKRS.register) {
+    //         setMessage("Szukaj")
+    //     }
+    // }
+    //
     const handleChangeInput = (event) => {
-        if(event.target.value.length === 10 || typeof event.target.value === "number") {
-            setMessage("")
+        // if(event.target.value.length === 10 || typeof event.target.value === "number") {
+        //     setMessage("")
             setFormKRS({ ...formKRS, numberKRS: event.target.value});
-        } else if (event.target.value.length <= 9) {
-            setMessage("Wprowadzono mniej niż 10 znaków, sprawdź numer KRS")
-        } else if (event.target.value.length > 10) {
-            setMessage("Wprowadzono więcej niż 10 znaków, sprawdź numer KRS")
-        }
-        handleSaveKRS()
+        // } else if (event.target.value.length <= 9) {
+        //     setMessage("Wprowadzono mniej niż 10 znaków, sprawdź numer KRS")
+        // } else if (event.target.value.length > 10) {
+        //     setMessage("Wprowadzono więcej niż 10 znaków, sprawdź numer KRS")
+        // }
+        // handleSaveKRS()
 
     }
 
@@ -34,19 +34,19 @@ const CompanyInput = () => {
         } else {
             setMessage("Wybierz Rejestr")
         }
-        handleSaveKRS()
+        // handleSaveKRS()
 
     }
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formKRS);
+        if(formKRS.numberKRS.length < 3) {
+            return
+        }
+        onSubmit(formKRS);
+
     };
-
-
-
-
 
 
     return (
@@ -64,8 +64,8 @@ const CompanyInput = () => {
                     </select>
                 </div>
                 <div>
-                    {/*<button type="submit" className="btn btn-primary">Szukaj</button>*/}
-                    {message ? <input className="btn btn-primary" type="submit" value={message} /> : null }
+                    <button type="submit" className="btn btn-primary">Szukaj</button>
+                    {/*{message ? <input className="btn btn-primary" type="submit" value={message} /> : null }*/}
                 </div>
             </form>
             <h1>{formKRS.numberKRS}</h1>

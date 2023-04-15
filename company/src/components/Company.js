@@ -1,14 +1,11 @@
 import React from 'react';
+import CompanyInput from "./CompanyInput";
 
-const Company = ({ company, loading, error, companyAsync }) => {
-    console.log(company, loading, error)
+const Company = ({ name }) => {
 
     return (
         <div>
-            <button disabled={loading} onClick={companyAsync}>Pobierz dane</button>
-            {loading && "Pobieram..."}
-            {error && error}
-            {company && <p>{company.company}</p>}
+            {name}
         </div>
     );
 };
