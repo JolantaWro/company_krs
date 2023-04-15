@@ -31,7 +31,7 @@ const CompanyInput = ({onSubmit}) => {
         <div>
             <form className="container" style={{ width: "400px" }} onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="numberKRS" className="form-label">Wprowadż nr KRS</label>
+                    <label htmlFor="numberKRS" className="form-label">Wprowadź nr KRS</label>
                     <input type="number" className="form-control" id="numberKRS" onChange={handleChangeInput}/>
                 </div>
                 <div className="mb-3">
