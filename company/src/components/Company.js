@@ -4,8 +4,8 @@ const Company = ({ company }) => {
 
     return (
         <div>
-            { company && company.name}
-            { company && company.date}
+            { company && <h2>{company.name}</h2>}
+            { company && <h2>{company.date}</h2>}
         </div>
     );
 };
