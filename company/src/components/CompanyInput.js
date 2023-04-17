@@ -26,10 +26,11 @@ const CompanyInput = ({onSubmit}) => {
         setMessage("")
         onSubmit(formKRS);
     };
+    //style={{ width: "400px" }}
 
     return (
         <div>
-            <form className="container" style={{ width: "400px" }} onSubmit={handleSubmit}>
+            <form className="container" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="numberKRS" className="form-label">Wprowadź nr KRS</label>
                     <input type="number" placeholder="00000123.." className="form-control" id="numberKRS" onChange={handleChangeInput}/>
@@ -42,7 +43,7 @@ const CompanyInput = ({onSubmit}) => {
                     </select>
                 </div>
                 <div>
-                    <button type="submit" className="btn btn-primary">Szukaj</button>
+                    <button type="submit" className="btn btn">Szukaj</button>
                     {message ? <h3>{message}</h3> : null }
                 </div>
             </form>

@@ -2,8 +2,38 @@ body {
     margin: 16px;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    background-color: snow
 }
 
 .color_secondary {
     color: #aaa;
+}
+
+form.container {
+    margin-top: 50px;
+    width: 400px;
+}
+
+#numberKRS {
+    background-color: ghostwhite
+}
+#register {
+    background-color: ghostwhite
+}
+div.container-fluid {
+    width: 400px;
+    margin-top: 10px ;
+    border-bottom: 2px solid silver;
+    padding: 1.5em 1.5em
+}
+
+h3.company {
+    text-align: center;
+    margin-top: 40px ;
+}
+
+button.btn {
+    border-radius: 3px;
+    border: 1px solid silver;
+    background-color: ghostwhite;
 }

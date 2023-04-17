@@ -1,9 +1,10 @@
 import React from "react";
+
 import Company from "../components/Company";
 import {connect} from "react-redux";
 import {fetchAsyncData} from "../redux/actions";
-
 import CompanyInput from "../components/CompanyInput";
+
 
 const CompanyContainer = ({ companyAsync, company, loading, error }) => {
     const handleSubmit = (value) => {
@@ -16,6 +17,8 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
             {loading && "Pobieram..."}
             {error && error}
             <Company company={company}/>
+
+
         </>
     );
 };
