@@ -15,7 +15,8 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
         <>
             <CompanyInput onSubmit={handleSubmit} />
             {loading && "Pobieram..."}
-            {error && error}
+            {error && <h3 className="company">{error}</h3>}
+            {/*{company.name.length > 0 ? <Company company={company}/> : null}*/}
             <Company company={company}/>
 
 
