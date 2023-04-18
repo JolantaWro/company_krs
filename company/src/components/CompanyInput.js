@@ -26,14 +26,14 @@ const CompanyInput = ({onSubmit}) => {
         setMessage("")
         onSubmit(formKRS);
     };
-    //style={{ width: "400px" }}
 
     return (
         <div>
             <form className="container" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="numberKRS" className="form-label">Wprowadź nr KRS</label>
-                    <input type="number" placeholder="00000123.." className="form-control" id="numberKRS" onChange={handleChangeInput}/>
+                    <input type="number" placeholder="00000123.." className="form-control" id="numberKRS"
+                           onChange={handleChangeInput}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="register" className="form-label">Wybierz Rejestr</label>

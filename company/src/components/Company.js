@@ -2,7 +2,6 @@ import React from 'react';
 
 const Company = ({ company }) => {
 
-    console.log(company)
 
     return (
         <div className="containerCompany">
@@ -18,7 +17,6 @@ const Company = ({ company }) => {
                 Ostatnio opublikowane dane: {company.results[company.results.length -1].zaOkresOdDo}</li>}
             {company.results === "" ? null : <li className="company">
                 Data ostatnio opublikowanych danych: {company.results[company.results.length -1].dataZlozenia}r.</li>}
-
         </div>
     );
 };
