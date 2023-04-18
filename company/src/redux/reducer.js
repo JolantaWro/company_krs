@@ -7,7 +7,10 @@ const initialState = {
     error: "",
     company: {
         name: "",
-        date: ""
+        date: "",
+        capital: "",
+        codePKD: "",
+        results: ""
     }
 }
 

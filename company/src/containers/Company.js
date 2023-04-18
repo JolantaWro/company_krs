@@ -7,6 +7,7 @@ import CompanyInput from "../components/CompanyInput";
 
 
 const CompanyContainer = ({ companyAsync, company, loading, error }) => {
+    console.log(company)
     const handleSubmit = (value) => {
         companyAsync(value)
     }
@@ -16,10 +17,8 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
             <CompanyInput onSubmit={handleSubmit} />
             {loading && "Pobieram..."}
             {error && <h3 className="company">{error}</h3>}
-            {/*{company.name.length > 0 ? <Company company={company}/> : null}*/}
-            <Company company={company}/>
-
-
+            {company ? <Company company={company}/> : null}
+            {/*<Company company={company}/>*/}
         </>
     );
 };

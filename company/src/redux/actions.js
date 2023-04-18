@@ -30,7 +30,10 @@ const fetchAsyncData = (value) => {
                 const company = await data.json()
                 dispatch(dataFetched({
                     name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
-                    date: company.odpis.naglowekA.dataOstatniegoWpisu
+                    date: company.odpis.naglowekA.dataOstatniegoWpisu,
+                    capital: company.odpis.dane.dzial1.kapital.wysokoscKapitaluZakladowego.wartosc,
+                    codePKD: company.odpis.dane.dzial3.przedmiotDzialalnosci.przedmiotPrzewazajacejDzialalnosci,
+                    results: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego
                 }))
             } else {
                 dispatch(dataError("Błądnie wprowadzone dane"))
