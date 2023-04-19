@@ -6,7 +6,7 @@ const Company = ({ company }) => {
     return (
         <div className="containerCompany">
             {company.name === "" ? null : <li className="company"> Nazwa firmy: {company.name}</li>}
-            {company.date === "" ? null : <li className="company"> Data ostatniego wpisu: {company.date}r.gi</li>}
+            {company.date === "" ? null : <li className="company"> Data ostatniego wpisu: {company.date}r.</li>}
             {company.capital === "" ? null : <li className="company">
                 Wysokość kapitału zakładowego: {company.capital}</li>}
             {company.codePKD === "" ? null : <li className="company">
