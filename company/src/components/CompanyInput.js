@@ -28,26 +28,19 @@ const CompanyInput = ({onSubmit}) => {
     };
 
     return (
-        <div>
-            <form className="container" onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="numberKRS" className="form-label">Wprowadź nr KRS</label>
-                    <input type="number" placeholder="00000123.." className="form-control" id="numberKRS"
-                           onChange={handleChangeInput}/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="register" className="form-label">Wybierz Rejestr</label>
-                    <select id="register" className="form-select" onChange={handleChangeSelect}>
-                        <option value="P">Przedsiębiorcy</option>
-                        <option value="S">Stowarzyszenia i inne</option>
-                    </select>
-                </div>
-                <div>
-                    <button type="submit" className="btn btn">Szukaj</button>
-                    {message ? <h3>{message}</h3> : null }
-                </div>
+        <>
+            <form className="form" onSubmit={handleSubmit}>
+                <select className="form__item form__item--small" onChange={handleChangeSelect}>
+                    <option value="P">Przedsiębiorcy</option>
+                    <option value="S">Stowarzyszenia i inne</option>
+                </select>
+                <input type="number" placeholder="Numer KRS" className="form__item form__item--number" onChange={handleChangeInput}/>
+                
+                <button type="submit" className="button button--main">Szukaj</button>
+                {message ? <h3>{message}</h3> : null }
             </form>
-        </div>
+        </>
+
     );
 };
 
