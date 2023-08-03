@@ -1,11 +1,11 @@
 import React from 'react';
 import Company from "../containers/Company";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
 
 const App = () => {
   return (
       <>
-          <Navigation />
+          {/* <Navigation /> */}
           <Company />
       </>
   );

@@ -13,10 +13,16 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
 
     return (
         <>
-            <CompanyInput onSubmit={handleSubmit} />
-            {loading && "Pobieram..."}
-            {error && <h3 className="company">{error}</h3>}
-            {company ? <Company company={company}/> : null}
+            <div className="container">
+                <div className="container--central">
+                    <p className="text--large">Szukaj<b className="text--color--red"> w KRS</b></p>
+                    <CompanyInput onSubmit={handleSubmit} />
+                    {loading && "Pobieram..."}
+                    {error && <h3 className="company">{error}</h3>}
+                    {company ? <Company company={company}/> : null}
+                </div>
+            </div>  
+            
         </>
     );
 };
