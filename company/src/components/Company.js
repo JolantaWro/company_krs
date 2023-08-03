@@ -13,7 +13,7 @@ const Company = ({ company }) => {
                 Branża: {company.codePKD[0].opis} {company.codePKD[0].kodDzial},{company.codePKD[0].kodKlasa},
                 {company.codePKD[0].kodPodklasa}</p>}
             {company.results === "" ? null : <p className="content__item text">
-                Ostatnio opublikowane dane: <b>{company.results[company.results.length -1].zaOkresOdDo}</b></p>}
+                Ostatnio opublikowane dane w KRS: <b>{company.results[company.results.length -1].zaOkresOdDo}</b></p>}
             {company.results === "" ? null : <p className="content__item text">
                 Data ostatnio opublikowanych danych: {company.results[company.results.length -1].dataZlozenia}r.</p>}
         </div>
