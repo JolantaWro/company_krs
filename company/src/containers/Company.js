@@ -18,7 +18,7 @@ const CompanyContainer = ({ companyAsync, company, loading, error }) => {
                     <p className="text--large">Szukaj<b className="text--color--red"> w KRS</b></p>
                     <CompanyInput onSubmit={handleSubmit} />
                     {loading && "Pobieram..."}
-                    {error && <h3 className="company">{error}</h3>}
+                    {error && <p className="text__title text--color--red">{error}</p>}
                     {company ? <Company company={company}/> : null}
                 </div>
             </div>  

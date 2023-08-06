@@ -37,7 +37,7 @@ const CompanyInput = ({onSubmit}) => {
                 <input type="number" placeholder="Numer KRS" className="form__item form__item--number" onChange={handleChangeInput}/>
                 
                 <button type="submit" className="button button--main">Szukaj</button>
-                {message ? <h3>{message}</h3> : null }
+                {message ? <p className='text__title text--color--red'>{message}</p> : null }
             </form>
         </>
 

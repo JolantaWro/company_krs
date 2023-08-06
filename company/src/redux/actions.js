@@ -26,21 +26,49 @@ const fetchAsyncData = (value) => {
         dispatch(startFetching());
         try{
             const data = await getCompanyData(value)
+            
             if (data.status === 200){
                 const company = await data.json()
-                dispatch(dataFetched({
-                    name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
-                    date: company.odpis.naglowekA.dataOstatniegoWpisu,
-                    capital: company.odpis.dane.dzial1.kapital.wysokoscKapitaluZakladowego.wartosc,
-                    codePKD: company.odpis.dane.dzial3.przedmiotDzialalnosci.przedmiotPrzewazajacejDzialalnosci,
-                    results: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego
-                }))
+                if (company.odpis.dane.dzial1.danePodmiotu.formaPrawna !== "SPÓŁKA AKCYJNA") {
+
+                    if (company.odpis.dane.dzial1.danePodmiotu.formaPrawna === "SPÓŁKA JAWNA" || company.odpis.dane.dzial1.danePodmiotu.formaPrawna === "SPÓŁKA KOMANDYTOWO-AKCYJNA") {
+                        dispatch(dataFetched({
+                            name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
+                            date: company.odpis.naglowekA.dataOstatniegoWpisu,
+                            capital: "Brak danych w KRS",
+                            codePKD: "Brak danych w KRS",
+                            resultsDateKRS: "Brak danych w KRS",
+                            resultsDateFinancial: "Brak danych w KRS"
+                        }))
+
+                    } else {
+                        dispatch(dataFetched({
+                            name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
+                            date: company.odpis.naglowekA.dataOstatniegoWpisu,
+                            capital: "Brak danych w KRS",
+                            codePKD: company.odpis.dane.dzial3.przedmiotDzialalnosci.przedmiotPrzewazajacejDzialalnosci,
+                            resultsDateKRS: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego,
+                            resultsDateFinancial: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego
+                        }))
+
+                    }
+                } else {
+                    dispatch(dataFetched({
+                        name: company.odpis.dane.dzial1.danePodmiotu.nazwa,
+                        date: company.odpis.naglowekA.dataOstatniegoWpisu,
+                        capital: company.odpis.dane.dzial1.kapital.wysokoscKapitaluZakladowego.wartosc,
+                        codePKD: company.odpis.dane.dzial3.przedmiotDzialalnosci.przedmiotPrzewazajacejDzialalnosci,
+                        resultsDateKRS: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego,
+                        resultsDateFinancial: company.odpis.dane.dzial3.wzmiankiOZlozonychDokumentach.wzmiankaOZlozeniuRocznegoSprawozdaniaFinansowego
+                    }))
+                }
             } else {
-                dispatch(dataError("Błądnie wprowadzone dane"))
+                dispatch(dataError(<p className="text__title text--color--red">Nie odnaleziono podmiotu, sprawdz wprowadzony nr KRS</p>))
             }
         }
         catch (error) {
-            dispatch(dataError(error.message))
+            const msg = `Błąd odczytu danych z API KRS: ${error.message}`
+            dispatch(dataError(msg))
         }
     }
 }

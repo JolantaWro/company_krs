@@ -5,10 +5,11 @@
 	--font-size--main: 18px;
 	--font-size--medium: 24px;
 	--font-size--large: 50px;
+    --font-size--button: 16px;
 	--font-weight--main: 400;
 	--font-weight--bold: 700;
 	--font-line-height: 24px;
-	--border-radius: 6px;
+	--border-radius: 5px;
 }
 
 * {
@@ -79,8 +80,8 @@ input[type=number]::-webkit-outer-spin-button {
 .form__item {
     padding-left: 15px;
     text-align: left;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: var(--font-weight--main);
+    font-size: var(--font-size--main);
     color: rgb(148, 148, 148);
     height: 40px;
     width: 300px;
@@ -88,10 +89,8 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: white;
     
     border: 1px solid rgb(110, 105, 105);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
-
-
 
 .form__item--small {
     width: 200px;
@@ -100,62 +99,13 @@ input[type=number]::-webkit-outer-spin-button {
 .button {
     width: 80px;
     margin: 10px;
-    font-size: 16px;
+    font-size: var(--font-size--button);
     height: 40px;
-
 }
 
 .button--main {
     background-color: black;
     color: white;
     border: 1px solid rgb(110, 105, 105);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
-/* 
-.color_secondary {
-    color: #aaa;
-}
-
-form.container {
-    margin-top: 50px;
-    width: 400px;
-}
-
-#numberKRS {
-    background-color: ghostwhite;
-}
-#register {
-    background-color: ghostwhite;
-}
-div.container-fluid {
-    width: 400px;
-    margin-top: 10px ;
-    border-bottom: 2px solid silver;
-    padding: 1.5em 1.5em
-}
-.containerCompany {
-    width: 400px;
-    margin-top: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-
-}
-
-.company {
-    text-align: left;
-    font-size: 16px;
-    margin-top: 20px ;
-}
-
-h3.company {
-    text-align: center;
-    font-size: 16px;
-    margin-top: 20px ;
-}
-
-button.btn {
-    border-radius: 3px;
-    border: 1px solid silver;
-    background-color: ghostwhite;
-} */
