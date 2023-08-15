@@ -38,7 +38,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: var(--font-size--large);
 }
 
-.text--color--red {
+.text--highlighted {
     color: var(--second-color);
 }
 
@@ -72,13 +72,31 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: left;
 }
 
+.content__link {
+    color: rgb(148, 148, 148);
+    font-weight: var(--font-weight--bold);
+    text-decoration: none;
+    border: 1px solid rgb(110, 105, 105);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    margin-left: 10px;
+    background-color: white;
+    font-size: var(--font-size--button);
+} 
+
+.content__link:hover {
+    color: white;
+    background-color: black;
+    font-weight: var(--font-weight--main);
+}
+
 .form {
     width: 700px;
     height: 200px;
 }
 
 .form__item {
-    padding-left: 15px;
+    padding: 0 15px 0 15px;
     text-align: left;
     font-weight: var(--font-weight--main);
     font-size: var(--font-size--main);
@@ -87,7 +105,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 300px;
     margin: 15px;
     background-color: white;
-    
     border: 1px solid rgb(110, 105, 105);
     border-radius: var(--border-radius);
 }
